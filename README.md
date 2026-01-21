@@ -35,4 +35,4 @@ A clean, dark-themed dashboard inspired by modern weather apps, focused on clari
 - Better error handling for invalid searches
 
 ## Author
-Sanath KS
+Sanath K S
