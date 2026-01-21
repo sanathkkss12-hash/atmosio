@@ -495,8 +495,6 @@ body {
 
 main {
   height: calc(100svh - 80px);
-  height: calc(100svh - 80px);
-
   overflow: hidden;
 }
 
@@ -541,7 +539,7 @@ article.container::before {
   #CURRENT WEATHER
 \*-----------------------------------*/
 
-.current-weather-card .weapper {
+.current-weather-card .wrapper {
   margin-block: 12px;
   display: flex;
   gap: 8px;
@@ -617,7 +615,7 @@ article.container::before {
 
 .highlight-list {
   display: grid;
-  gap: 20px;
+  gap: 16px;
 }
 
 .highlight-list .title-3 {
@@ -689,6 +687,16 @@ article.container::before {
 .badge.aqi-5 {
   background-color: var(--bg-aqi-5);
   color: var(--on-bg-aqi-5);
+}
+
+.highlight-card.two .card-item {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.highlight-card.two .label-1 {
+  margin-block-end: 4px;
 }
 
 /*-----------------------------------*\
