@@ -43,7 +43,7 @@
           />
         </a>
 
-        <div class="search-view" data-search-view>
+        <div class="search-view active" data-search-view>
           <div class="search-wrapper">
             <input
               type="search"
@@ -377,14 +377,14 @@
             <!-- HOURLY FORECAST -->
           </div>
 
-          <div
+          <section
             class="section hourly-forecast"
-            aria-label="hourly-forecast"
+            aria-label="Hourly forecast"
             data-hourly-forecast
           >
-            <h2 class="title">Today at</h2>
+            <h2 class="title-2">Today at</h2>
 
-            <div class="slider-content">
+            <div class="slider-container">
               <ul class="slider-list" data-temp>
                 <li class="slider-item">
                   <div class="card card-sm slider-card">
@@ -505,7 +505,6 @@
                   </div>
                 </li>
               </ul>
-
               <ul class="slider-list" data-wind>
                 <li class="slider-item">
                   <div class="card card-sm slider-card">
@@ -627,9 +626,47 @@
                 </li>
               </ul>
             </div>
-          </div>
+          </section>
+
+          <!-- FOOTER -->
+
+          <footer class="footer">
+            <p class="body-3">This is Project by Sanath K S</p>
+
+            <p class="body-3">
+              Powered by
+              <a
+                href="https://openweathermap.org/api"
+                title="Free OpenWeather API"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  src="./assets/images/openweather.png"
+                  width="150"
+                  height="30"
+                  loading="lazy"
+                  alt="OpenWeather"
+                />
+              </a>
+            </p>
+          </footer>
         </div>
+
+        <div class="loading" data-loading></div>
       </article>
     </main>
+
+    <!-- 404 SECTION -->
+
+    <section class="error-content" data-error-content>
+      <h2 class="heading">404</h2>
+
+      <p class="body-1">Page Not Found!</p>
+
+      <a href="#" class="btn-primary">
+        <span class="span">Go Home</span>
+      </a>
+    </section>
   </body>
 </html>
