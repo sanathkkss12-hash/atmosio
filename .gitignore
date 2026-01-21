@@ -1,0 +1,22 @@
+# Custom ignored folder
+ignore/
+
+# System / editor
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs & temp
+*.log
+
+# Environment files
+.env
+
+# Build folders (future-proof)
+dist/
+build/
+out/
+.cache/
+.tmp/
+node_modules/
+.babelrc
