@@ -950,6 +950,14 @@ article.container::before {
 @media (min-width: 1200px) {
   /* CUSTOM PROPERTY */
 
+  article.container {
+    align-items: stretch;
+  }
+
+  .content-right {
+    padding-top: 12px;
+  }
+
   :root {
     --heading: 8rem;
     --title-2: 2rem;
@@ -1030,19 +1038,31 @@ article.container::before {
     display: none;
   }
 
-  .search-view:focus-within .seacrh-result.active {
+  .search-view:focus-within .search-result.active {
     display: block;
   }
 
-  .search-view:has(.seacrh-result.active):focus-within,
-  .search-field {
+  .search-view:has(.search-result.active) .search-field {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
 
+  /* .search-result {
+    margin-top: 8px;
+    border-radius: var(--radius-28);
+  } */
+
+  .search-view:has(.search-result.active) .search-field {
+    border-radius: var(--radius-28) var(--radius-28) 0 0;
+  }
+
+  .search-view .view-list {
+    border-radius: 0 0 var(--radius-28) var(--radius-28);
+  }
+
   .search-view .view-list {
     position: absolute;
-    top: 100;
+    top: 100%;
     left: 0;
     width: 100%;
     max-height: 360px;
@@ -1050,5 +1070,65 @@ article.container::before {
     border-block-start: 1px solid var(--outline);
     overflow-y: auto;
     overflow-y: overlay;
+  }
+
+  .search-view .view-list:empty {
+    min-height: 120px;
+  }
+
+  .search-view .view-list::-webkit-scrollbar-button {
+    height: 20px;
+  }
+
+  .search-view:is(:hover, :has(.view-list):hover) {
+    filter: drop-shadow(var(--shadow-1));
+  }
+
+  .search-view:is(:focus-within, :has(.view-list):focus-within) {
+    filter: drop-shadow(var(--shadow-2));
+  }
+
+  /* MAIN  */
+
+  main {
+    height: calc(100vh - 120px);
+    height: calc(100svh - 120px);
+  }
+
+  article.container {
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .current-weather .weather-icon {
+    width: 80px;
+  }
+
+  .forecast-card .title-2 {
+    --title-2: 2.2rem;
+  }
+
+  .highlight-card:nth-child(-n + 2) {
+    height: 200px;
+  }
+
+  .highlight-card:nth-child(n + 3) {
+    height: 150px;
+  }
+
+  .highlight-card .m-icon {
+    font-size: 4.8rem;
+  }
+
+  .slider-list {
+    gap: 16px;
+  }
+}
+
+/* responsive for large screens for +1400px */
+
+@media (min-width: 1400px) {
+  .highlight-list {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
