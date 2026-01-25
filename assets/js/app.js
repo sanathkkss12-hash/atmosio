@@ -2,6 +2,7 @@
 
 import { fetchData, url } from "./api.js";
 import * as module from "./module.js";
+import { initMap } from "./mapHandler.js";
 
 /**
  * Add event listener on vatious elements
@@ -20,9 +21,17 @@ const addEventOnElements = function (elements, eventType, callback) {
 
 const searchView = document.querySelector("[data-search-view]");
 const searchTogglers = document.querySelectorAll("[data-search-toggler]");
+const mapCard = document.querySelector(".map-card");
 
-const toggleSearch = () => searchView.classList.toggle("active");
+const toggleSearch = () => {
+  searchView.classList.contains("hidden");
+
+  searchView.classList.toggle("active");
+};
 addEventOnElements(searchTogglers, "click", toggleSearch);
+
+let currentLat = null;
+let currentLon = null;
 
 //SEARCH INTEGRATION
 
@@ -197,6 +206,14 @@ export const updateWeather = function (lat, lon) {
         }
       };
 
+      const visibilityStyle = function () {
+        if (visibility >= 10000) {
+          return "solid-green";
+        } else {
+          return "card-sm";
+        }
+      };
+
       card.innerHTML = `
         <h2 class="title-2" id="highlights-label">Today Highlights</h2>
 
@@ -209,24 +226,77 @@ export const updateWeather = function (lat, lon) {
 
               <ul class="card-list">
                 <li class="card-item">
+                  <div class="tooltip">
+                    <span class="info-icon"><img src="./assets/images/info.png" width="20" height="20"></span>
+                    <span class="tooltip-text">
+                      PM<sub>2.5</sub> (Fine Particulate Matter):
+                      <br>Particles smaller than 2.5 µm.
+                      <br>Can penetrate lungs & bloodstream.
+                      <br>&lt;12 µg/m³ → Good
+                      <br>12–35.4 µg/m³ → Moderate
+                      <br>35.5–55.4 µg/m³ → Unhealthy for sensitive groups
+                      <br>&gt;55.4 µg/m³ → Unhealthy
+                    </span>
+                  </div>
+
                   <p class="title-1">${pm2_5.toPrecision(3)}</p>
 
                   <p class="label-1">PM<sub>2.5</sub></p>
                 </li>
 
                 <li class="card-item">
+
+
+                  <div class="tooltip">
+                    <span class="info-icon"><img src="./assets/images/info.png" width="20" height="20"></span>
+                    <span class="tooltip-text">
+                      SO<sub>2</sub> (Sulfur Dioxide):
+                      <br>Produced by burning fossil fuels.
+                      <br>Can irritate lungs and worsen asthma.
+                      <br>&lt;35 ppb → Good
+                      <br>35–75 ppb → Moderate
+                      <br>&gt;75 ppb → Unhealthy
+                    </span>
+                  </div>
+
                   <p class="title-1">${so2.toPrecision(3)}</p>
 
                   <p class="label-1">SO<sub>2</sub></p>
                 </li>
 
                 <li class="card-item">
+
+                  <div class="tooltip">
+                    <span class="info-icon"><img src="./assets/images/info.png" width="20" height="20"></span>
+                    <span class="tooltip-text">
+                      NO<sub>2</sub> (Nitrogen Dioxide):
+                      <br>From vehicles and power plants.
+                      <br>Can irritate airways and reduce lung function.
+                      <br>&lt;53 ppb → Good
+                      <br>53–100 ppb → Moderate
+                      <br>&gt;100 ppb → Unhealthy
+                    </span>
+                  </div>
+
                   <p class="title-1">${no2.toPrecision(3)}</p>
 
                   <p class="label-1">NO<sub>2</sub></p>
                 </li>
 
                 <li class="card-item">
+
+                  <div class="tooltip">
+                    <span class="info-icon"><img src="./assets/images/info.png" width="20" height="20"></span>
+                    <span class="tooltip-text">
+                      O<sub>3</sub> (Ozone):
+                      <br>Ground-level ozone formed by sunlight + pollution.
+                      <br>Can cause chest pain, coughing, and worsen asthma.
+                      <br>&lt;54 ppb → Good
+                      <br>55–70 ppb → Moderate
+                      <br>&gt;70 ppb → Unhealthy
+                    </span>
+                  </div>
+
                   <p class="title-1">${o3}</p>
 
                   <p class="label-1">O<sub>3</sub></p>
@@ -292,7 +362,7 @@ export const updateWeather = function (lat, lon) {
           </div>
 
           <!-- VISIBILITY -->
-          <div class="card card-sm highlight-card">
+          <div class="card ${visibilityStyle()} highlight-card">
             <h3 class="title-3">Visibility</h3>
 
             <div class="wrapper">
@@ -446,51 +516,19 @@ export const updateWeather = function (lat, lon) {
       loading.style.display = "none";
       // container.style.overflowY = "overlay";
       container.classList.add("fade-in");
+
+      currentLat = lat;
+      currentLon = lon;
     });
   });
 };
 
-//MAP FUNCTION
+initMap();
+// renderMap();
 
-const map = L.map("map", { zoomControl: false }).setView([20, 78], 4); // India center
-
-// Dark mode tiles
-L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-  attribution: "&copy; OpenStreetMap &copy; CARTO",
-  maxZoom: 19,
-}).addTo(map);
-
-let previousMarker = null; // store the previous marker
-
-var locatorIcon = L.icon({
-  iconUrl: "./assets/images/locator.png",
-  iconSize: [32, 32],
-});
-
-L.icon.Default;
-
-map.removeControl(map.attributionControl);
-
-map.on("click", function (e) {
-  const { lat, lng } = e.latlng;
-
-  // Update weather
-  updateWeather(`lat=${lat}&lon=${lng}`);
-
-  // Remove previous marker if exists
-  if (previousMarker) {
-    map.removeLayer(previousMarker);
-  }
-
-  // Add new marker
-  const marker = L.marker([lat, lng], { icon: locatorIcon }).addTo(map);
-
-  // Optional: remove marker when clicked
-  marker.on("click", () => map.removeLayer(marker));
-
-  // Save this marker as previous
-  previousMarker = marker;
-});
+export const loadedCords = function (lat, lon) {
+  renderMap(lat, lon);
+};
 
 export const error404 = function () {
   errorContent.style.display = "flex";
