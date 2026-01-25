@@ -29,6 +29,7 @@
     <script src="./assets/js/api.js" type="module"></script>
     <script src="./assets/js/module.js" type="module"></script>
     <script src="./assets/js/route.js" type="module"></script>
+    <script src="./assets/js/mapHandler.js" type="module"></script>
 
     <!-- Leaflet CDN -->
     <link
@@ -94,7 +95,6 @@
             class="btn-primary has-state"
             data-current-location-btn
           >
-            //
             <span class="m-icon">my_location</span>
 
             <span class="span">Current Location</span>
@@ -113,7 +113,15 @@
             data-current-weather
           ></section>
 
-          <div class="card card-lg forecast-card" id="map"></div>
+          <!-- MAP SECTION -->
+
+          <section
+            class="section map-container"
+            aria-labelledby="map-container-label"
+            data-map-container
+          >
+            <div class="card card-lg map-card" id="map"></div>
+          </section>
 
           <!-- #FORECAST -->
 
@@ -143,47 +151,32 @@
           ></section>
         </div>
 
-        <div class="loading" data-loading></div>
-      </article>
+        <!-- FOOTER -->
 
-      <!-- FOOTER (GLOBAL) -->
-      <!-- <footer class="footer">
-        <div class="footer-inner">
-          <p class="footer-text">Project by Sanath K S</p>
+        <!-- <footer class="footer">
+          <p class="body-3">This is Project by Sanath K S</p>
 
-          <div class="footer-attribution">
-            <span>Powered by</span>
-
+          <p class="body-3">
+            Powered by
             <a
               href="https://openweathermap.org/api"
+              title="Free OpenWeather API"
               target="_blank"
               rel="noopener"
-              aria-label="OpenWeather"
             >
               <img
                 src="./assets/images/openweather.png"
+                width="150"
+                height="30"
+                loading="lazy"
                 alt="OpenWeather"
-                height="22"
               />
             </a>
+          </p>
+        </footer> -->
 
-            <span class="dot">•</span>
-
-            <span>Map ©</span>
-            <a
-              href="https://www.openstreetmap.org/copyright"
-              target="_blank"
-              rel="noopener"
-            >
-              OpenStreetMap
-            </a>
-            <span>©</span>
-            <a href="https://carto.com/" target="_blank" rel="noopener">
-              CARTO
-            </a>
-          </div>
-        </div>
-      </footer> -->
+        <div class="loading" data-loading></div>
+      </article>
     </main>
 
     <!-- 404 SECTION -->
@@ -199,3 +192,5 @@
     </section>
   </body>
 </html>
+
+/* Latest Version (Designe COMPLETED) */
