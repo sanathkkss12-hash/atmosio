@@ -5,6 +5,7 @@ Atmosio is a modern weather forecast web application that provides real-time wea
 ## Features
 - Real-time weather information
 - City-based weather search
+- Search the location by pointing on map
 - Current temperature and weather conditions
 - Air quality index (AQI)
 - Humidity, pressure, and visibility
@@ -12,15 +13,14 @@ Atmosio is a modern weather forecast web application that provides real-time wea
 - Multi-day weather forecast
 - Responsive and modern UI design
 
+
 ## Tech Stack
 - HTML
 - CSS
 - JavaScript
-- Weather API (for live data)
-
-## Project Status
-🚧 Work in Progress  
-New features and UI improvements are actively being developed.
+- [OpenWeather API](https://openweathermap.org/api) (for live data)
+- [Leaflet.js](https://leafletjs.com/) (for interactive maps)
+- [CARTO Basemap](https://carto.com/)  (for map tiles)
 
 ## Purpose
 This project is built to improve frontend development skills, API integration, and UI/UX design while creating a practical real-world application.
@@ -29,10 +29,21 @@ This project is built to improve frontend development skills, API integration, a
 A clean, dark-themed dashboard inspired by modern weather apps, focused on clarity and usability.
 
 ## Future Improvements
-- Location-based weather using GPS
-- Hourly forecast view
-- Improved animations and transitions
+- Daily weather related news
+- AI assistant for weather assistance 
 - Better error handling for invalid searches
+
+## Credits
+
+- **Weather Data:** [OpenWeather API](https://openweathermap.org/api)  
+- **Map Rendering:** [Leaflet.js](https://leafletjs.com/)  
+- **Map Tiles:** [CARTO Basemap](https://carto.com/)  
+
+> Note: All data and map tiles are used in accordance with the respective providers' terms of service.
+
+##Version
+-Atmosio 1.0.1
+
 
 ## Author
 Sanath K S
