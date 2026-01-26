@@ -14,13 +14,22 @@ Atmosio is a modern weather forecast web application that provides real-time wea
 - Responsive and modern UI design
 
 
-## Tech Stack
+## Tech Used
 - HTML
 - CSS
 - JavaScript
 - [OpenWeather API](https://openweathermap.org/api) (for live data)
 - [Leaflet.js](https://leafletjs.com/) (for interactive maps)
 - [CARTO Basemap](https://carto.com/)  (for map tiles)
+
+##Code Overview
+- DOM(Document Object Model) manipulation using JavaScript
+- Fetching data from an API using fetch()
+- Working with JSON data
+- Using latitude & longitude
+- Handling user interactions (search, click, location)
+- Conditional styling using CSS classes
+- Basic routing using URL hash (#)
 
 ## Purpose
 This project is built to improve frontend development skills, API integration, and UI/UX design while creating a practical real-world application.
