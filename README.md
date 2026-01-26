@@ -32,7 +32,7 @@ Atmosio is a modern weather forecast web application that provides real-time wea
 - Basic routing using URL hash (#)
 
 ## Flow 
-![Atmosio Preview](assets/flow.png)
+![Atmosio Preview](assets/Flow.png)
 
 ## Purpose
 This project is built to improve frontend development skills, API integration, and UI/UX design while creating a practical real-world application.
