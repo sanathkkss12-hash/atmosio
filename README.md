@@ -50,7 +50,7 @@ A clean, dark-themed dashboard inspired by modern weather apps, focused on clari
 
 > Note: All data and map tiles are used in accordance with the respective providers' terms of service.
 
-##Version
+## Version
 > Atmosio 1.0.1
 
 
