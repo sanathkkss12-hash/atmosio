@@ -30,6 +30,19 @@ const toggleSearch = () => {
 };
 addEventOnElements(searchTogglers, "click", toggleSearch);
 
+//Hides the map on showing the search view
+
+if (searchView && mapCard) {
+  const observer = new MutationObserver(() => {
+    mapCard.classList.toggle("hidden", searchView.classList.contains("active"));
+  });
+
+  observer.observe(searchView, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+}
+
 let currentLat = null;
 let currentLon = null;
 
@@ -108,7 +121,8 @@ const errorContent = document.querySelector("[data-error-content]");
  */
 export const updateWeather = function (lat, lon) {
   loading.style.display = "grid";
-  // container.style.overflowY = "hidden";
+  mapCard.classList.add("hidden");
+  container.style.overflowY = "hidden";
   container.classList.remove("fade-in");
   errorContent.style.display = "none";
 
@@ -514,7 +528,8 @@ export const updateWeather = function (lat, lon) {
       }
 
       loading.style.display = "none";
-      // container.style.overflowY = "overlay";
+      mapCard.classList.remove("hidden");
+      container.style.overflowY = "overlay";
       container.classList.add("fade-in");
 
       currentLat = lat;

@@ -1042,7 +1042,8 @@ article.container::before {
   height: 300px;
   transition:
     box-shadow 0.2s ease,
-    background-color 0.2s ease;
+    background-color 0.2s ease,
+    opacity 200ms ease;
 }
 
 #map {
@@ -1068,7 +1069,7 @@ article.container::before {
 }
 
 .map-card.hidden {
-  opacity: 0;
+  opacity: 0 !important;
 }
 
 /*-----------------------------------*\
