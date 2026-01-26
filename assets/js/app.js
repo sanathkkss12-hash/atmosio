@@ -241,7 +241,7 @@ export const updateWeather = function (lat, lon) {
               <ul class="card-list">
                 <li class="card-item">
                   <div class="tooltip">
-                    <span class="info-icon"><img src="./assets/images/info.png" width="20" height="20"></span>
+                    <span class="info-icon"><img src="./assets/images/info.png" width="15" height="15"></span>
                     <span class="tooltip-text">
                       PM<sub>2.5</sub> (Fine Particulate Matter):
                       <br>Particles smaller than 2.5 µm.
@@ -262,7 +262,7 @@ export const updateWeather = function (lat, lon) {
 
 
                   <div class="tooltip">
-                    <span class="info-icon"><img src="./assets/images/info.png" width="20" height="20"></span>
+                    <span class="info-icon"><img src="./assets/images/info.png" width="15" height="15"></span>
                     <span class="tooltip-text">
                       SO<sub>2</sub> (Sulfur Dioxide):
                       <br>Produced by burning fossil fuels.
@@ -281,7 +281,7 @@ export const updateWeather = function (lat, lon) {
                 <li class="card-item">
 
                   <div class="tooltip">
-                    <span class="info-icon"><img src="./assets/images/info.png" width="20" height="20"></span>
+                    <span class="info-icon"><img src="./assets/images/info.png" width="15" height="15"></span>
                     <span class="tooltip-text">
                       NO<sub>2</sub> (Nitrogen Dioxide):
                       <br>From vehicles and power plants.
@@ -300,7 +300,7 @@ export const updateWeather = function (lat, lon) {
                 <li class="card-item">
 
                   <div class="tooltip">
-                    <span class="info-icon"><img src="./assets/images/info.png" width="20" height="20"></span>
+                    <span class="info-icon"><img src="./assets/images/info.png" width="15" height="15"></span>
                     <span class="tooltip-text">
                       O<sub>3</sub> (Ozone):
                       <br>Ground-level ozone formed by sunlight + pollution.
