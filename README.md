@@ -33,6 +33,14 @@ Atmosio is a modern weather forecast web application that provides real-time wea
 - Conditional styling using CSS classes
 - Basic routing using URL hash (#)
 
+## Functions of each .js script 
+- API = Fetched data from openweather api
+- App = Performs all tasks like creation of UI elements, uses fetched data to write the UI, Works as the main source of flow
+- MapHandler = This is responsible for all functions related to map creation and use
+- Module = This is responsible for getting the current date, time, month.
+- Route = This 
+- 
+
 ## Flow
 
 ![Atmosio Preview](Flow.png)
