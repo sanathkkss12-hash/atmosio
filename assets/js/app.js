@@ -122,7 +122,7 @@ const errorContent = document.querySelector("[data-error-content]");
 export const updateWeather = function (lat, lon) {
   loading.style.display = "grid";
   mapCard.classList.add("hidden");
-  container.style.overflowY = "hidden";
+  // container.style.overflowY = "hidden";
   container.classList.remove("fade-in");
   errorContent.style.display = "none";
 
@@ -529,7 +529,7 @@ export const updateWeather = function (lat, lon) {
 
       loading.style.display = "none";
       mapCard.classList.remove("hidden");
-      container.style.overflowY = "overlay";
+      // container.style.overflowY = "overlay";
       container.classList.add("fade-in");
 
       currentLat = lat;
