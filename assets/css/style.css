@@ -1072,6 +1072,10 @@ article.container::before {
   opacity: 0 !important;
 }
 
+.locator-marker {
+  cursor: default;
+}
+
 /*-----------------------------------*\
   #LOADING
 \*-----------------------------------*/

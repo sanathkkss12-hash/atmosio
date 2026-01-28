@@ -21,7 +21,7 @@ export function initMap() {
     ],
     maxBoundsViscosity: 0.25,
     worldCopyJump: false,
-  }).setView([20, 78], 4);
+  }).setView([12.9767936, 77.590082], 10);
 
   L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
     attribution: "&copy; OpenStreetMap &copy; CARTO",
@@ -30,6 +30,8 @@ export function initMap() {
   }).addTo(map);
 
   map.removeControl(map.attributionControl);
+
+  changeLocatorIcon(12.9767936, 77.590082); // Banglore location
 
   map.on("click", onMapClick);
 }
@@ -43,8 +45,8 @@ export function changeLocatorIcon(lat, lng) {
   // Add new marker
   const marker = L.marker([lat, lng], { icon: locatorIcon }).addTo(map);
 
-  // Optional: remove marker when clicked
-  marker.on("click", () => map.removeLayer(marker));
+  // remove marker when clicked
+  // marker.on("click", () => map.removeLayer(marker));
 
   // Save this marker as previous
   previousMarker = marker;
