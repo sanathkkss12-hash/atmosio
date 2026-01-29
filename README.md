@@ -2,6 +2,10 @@
 
 Atmosio is a modern weather forecast web application that provides real-time weather information through a clean, dark-themed user interface. The app allows users to search for locations and view accurate, up-to-date weather data in a visually simple and readable dashboard.
 
+<p align="center">
+  <img src="assets\images\Doc\Screenshot1.png" width="400" alt="preview">
+</p>
+
 ## Features
 
 - Real-time weather information
@@ -33,7 +37,7 @@ Atmosio is a modern weather forecast web application that provides real-time wea
 - Conditional styling using CSS classes
 - Basic routing using URL hash (#)
 
-## Functions of each .js script 
+## Functions of each .js script
 
 - API = Fetched data from openweather api
 - App = Performs all tasks like creation of UI elements, uses fetched data to write the UI, Works as the main source of flow
@@ -43,7 +47,9 @@ Atmosio is a modern weather forecast web application that provides real-time wea
 
 ## Flow
 
-![Atmosio Preview](Flow.png)
+<p align="center">
+  <img src="assets\images\Doc\Flow.png" width="400" alt="preview">
+</p>
 
 ## Purpose
 
@@ -58,6 +64,16 @@ A clean, dark-themed dashboard inspired by modern weather apps, focused on clari
 - Daily weather related news
 - AI assistant for weather assistance
 - Better error handling for invalid searches
+
+## Screen Captures
+
+<p align="center">
+  <img src="assets\images\Doc\Screenshot2.png" width="400" alt="preview">
+</p>
+
+<p align="center">
+  <img src="assets\images\Doc\Screenshot3.png" width="400" alt="preview">
+</p>
 
 ## Credits
 
