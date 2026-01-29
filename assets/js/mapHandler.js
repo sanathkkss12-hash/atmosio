@@ -21,13 +21,22 @@ export function initMap() {
     ],
     maxBoundsViscosity: 0.25,
     worldCopyJump: false,
-  }).setView([12.9767936, 77.590082], 10);
+  }).setView([12.9767936, 77.590082], 15);
 
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-    attribution: "&copy; OpenStreetMap &copy; CARTO",
-    maxZoom: 19,
-    noWrap: true,
-  }).addTo(map);
+  L.tileLayer(
+    "https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}.jpg",
+    {
+      attribution: "&copy; OpenStreetMap &copy; CARTO",
+      maxZoom: 19,
+      noWrap: true,
+    },
+  ).addTo(map);
+
+  const nightTint = L.tileLayer(
+    "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+    { opacity: 0.35 },
+  );
+  nightTint.addTo(map);
 
   map.removeControl(map.attributionControl);
 

@@ -111,6 +111,27 @@
   --pressure-accent: hsla(215, 35%, 65%, 0.85); /* steel blue */
   --visibility-accent: hsla(175, 35%, 55%, 0.85); /* muted teal */
   --feelslike-accent: hsla(38, 55%, 65%, 0.9); /* soft amber */
+
+  /* Borders */
+  --border-subtle: #131214;
+  --border-strong: #1d1c1f;
+
+  /* Tooltips */
+  --tooltip-bg: #1e1e1e;
+  --tooltip-text: #706f75;
+
+  /* Map */
+  --map-bg: #121214;
+  --map-inner-bg: #1d1c1f;
+
+  /* Icon emphasis */
+  --icon-strong: hsla(0, 0%, 100%, 0.95);
+
+  /* Accent shadows */
+  --shadow-red-soft: hsla(8, 55%, 25%, 0.45);
+  --shadow-blue-soft: hsla(215, 35%, 65%, 0.26);
+  --shadow-green-soft: hsla(157, 55%, 25%, 0.26);
+  --shadow-primary-soft: rgba(181, 161, 229, 0.12);
 }
 
 /*-----------------------------------*\
@@ -225,7 +246,7 @@ body {
   background: var(--surface);
   border-radius: var(--radius-28);
   box-shadow: var(--shadow-2);
-  border-color: #131214;
+  border-color: var(--border-subtle);
   border-width: 2px;
 
   transition:
@@ -275,10 +296,14 @@ body {
 }
 
 .card.solid-red {
-  background: var(--solid-red);
+  background: linear-gradient(
+    160deg,
+    rgba(184, 75, 75, 1) 0%,
+    rgba(161, 58, 58, 1) 50%
+  );
   color: var(--solid-red-text);
   border-radius: var(--radius-16);
-  box-shadow: 0 12px 30px hsla(8, 55%, 25%, 0.45);
+  box-shadow: 0 12px 30px var(--shadow-red-soft);
   border-radius: var(--radius-16);
   padding: 16px;
 
@@ -307,10 +332,14 @@ body {
 }
 
 .card.solid-blue {
-  background: var(--solid-blue);
+  background: linear-gradient(
+    160deg,
+    rgba(135, 165, 210, 1) 0%,
+    rgba(105, 135, 185, 1) 50%
+  );
   color: var(--solid-blue-text);
   border-radius: var(--radius-16);
-  box-shadow: 0 12px 30px hsla(215, 35%, 65%, 0.26);
+  box-shadow: 0 12px 30px var(--shadow-blue-soft);
   padding: 16px;
   transition:
     transform 220ms ease,
@@ -333,10 +362,14 @@ body {
 }
 
 .card .solid-green {
-  background: var(--solid-green);
+  background: linear-gradient(
+    160deg,
+    rgba(92, 176, 165, 1) 0%,
+    rgba(72, 150, 140, 1) 50%
+  );
   color: var(--solid-green-text);
   border-radius: var(--radius-16);
-  box-shadow: 0 12px 30px hsla(157, 55%, 25%, 0.26);
+  box-shadow: 0 12px 30px var(--shadow-green-soft);
   padding: 16px;
   transition:
     transform 220ms ease,
@@ -377,8 +410,8 @@ body {
   bottom: 130%;
   left: 50%;
   transform: translateX(-50%);
-  background: #1e1e1e;
-  color: #706f75;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
   padding: 8px 10px;
   border-radius: 8px;
   font-size: 12px;
@@ -640,7 +673,9 @@ body {
   clip-path: circle(4% at calc(100% - 102px) 5%);
   opacity: 0;
   visibility: hidden;
-  transition: clip-path 500ms ease;
+  transition:
+    clip-path 500ms ease,
+    transform 500ms ease;
   z-index: 4;
 }
 
@@ -689,13 +724,17 @@ body {
   line-height: 80px;
   padding-inline: 56px 16px;
   outline: none;
+  border-width: 2px;
+  border-color: var(--outline);
   transition: all 200ms ease;
 }
 
 .search-field:hover {
-  /* transform: translateY(-3px);
-  transform: scale(1.02); */
+  /* transform: translateY(-3px); */
+  /* transform: scale(1.02); */
   box-shadow: 0 12px 30px hsla(258, 57%, 77%, 0.45);
+  border-width: 2px;
+  border-color: #37324c;
 }
 
 .search-field::placeholder {
@@ -1035,9 +1074,9 @@ article.container::before {
   padding: 16px;
   /* height: 100vh; one height only */
   margin-bottom: 20px;
-  border: 2px solid #1d1c1f;
+  border: 2px solid var(--border-strong);
   border-radius: var(--radius-28);
-  background: #121214;
+  background: var(--map-bg);
   min-height: 40vh;
   height: 300px;
   transition:
@@ -1051,12 +1090,12 @@ article.container::before {
   height: 100%;
   border-radius: var(--radius-28);
   overflow: hidden;
-  background: #1d1c1f;
+  background: var(--map-inner-bg);
 }
 
 .map-card:hover {
   transform: none !important;
-  box-shadow: 0 12px 30px rgba(181, 161, 229, 0.12);
+  box-shadow: 0 12px 30px var(--shadow-primary-soft);
 }
 
 .leaflet-container {
@@ -1151,6 +1190,17 @@ article.container::before {
 
 .footer .body-3 :last-child {
   gap: 6px;
+}
+
+/* DEFAULT (small & normal screens) */
+.left-section {
+  position: sticky;
+  top: 24px;
+  height: fit-content;
+}
+
+.right-section {
+  position: static;
 }
 
 /*-----------------------------------*\
