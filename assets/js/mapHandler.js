@@ -4,6 +4,7 @@ import { updateWeather } from "./app.js";
 
 let map;
 let previousMarker = null;
+let apiKey = "392ZIJXS2u252MmNe9SR";
 
 const locatorIcon = L.icon({
   iconUrl: "./assets/images/locator.png",
@@ -24,9 +25,10 @@ export function initMap() {
   }).setView([12.9767936, 77.590082], 15);
 
   L.tileLayer(
-    "https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}.jpg",
+    `https://api.maptiler.com/maps/hybrid-v4/256/{z}/{x}/{y}.png?key=${apiKey}`,
     {
-      attribution: "&copy; OpenStreetMap &copy; CARTO",
+      attribution:
+        '&copy; <a href="https://www.maptiler.com/">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
       maxZoom: 19,
       noWrap: true,
     },
