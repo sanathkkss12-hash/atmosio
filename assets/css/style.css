@@ -15,14 +15,11 @@
   --on-primary: #100e17;
   --background: #131214;
   --on-background: #eae6f2;
-  --surface: linear-gradient(
-    219deg,
-    rgba(31, 31, 31, 1) 0%,
-    rgba(29, 28, 31, 1) 50%
-  );
+  --surface: #1d1c1f;
   --on-surface: #dddae5;
   --on-surface-variant: #7b7980;
   --on-surface-variant-2: #b9b6bf;
+  --surface-search-variant: #343434;
   --outline: #3e3d40;
   --bg-aqi-1: #89e589;
   --on-bg-aqi-1: #1f331f;
