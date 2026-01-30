@@ -31,6 +31,9 @@ export function initMap() {
         '&copy; <a href="https://www.maptiler.com/">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
       maxZoom: 19,
       noWrap: true,
+      zoomAnimation: true,
+      fadeAnimation: false,
+      markerZoomAnimation: false,
     },
   ).addTo(map);
 

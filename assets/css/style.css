@@ -15,7 +15,11 @@
   --on-primary: #100e17;
   --background: #131214;
   --on-background: #eae6f2;
-  --surface: #1d1c1f;
+  --surface: linear-gradient(
+    219deg,
+    rgba(31, 31, 31, 1) 0%,
+    rgba(29, 28, 31, 1) 50%
+  );
   --on-surface: #dddae5;
   --on-surface-variant: #7b7980;
   --on-surface-variant-2: #b9b6bf;
@@ -131,7 +135,7 @@
   --shadow-red-soft: hsla(8, 55%, 25%, 0.45);
   --shadow-blue-soft: hsla(215, 35%, 65%, 0.26);
   --shadow-green-soft: hsla(157, 55%, 25%, 0.26);
-  --shadow-primary-soft: rgba(181, 161, 229, 0.12);
+  --shadow-primary-soft: rgba(181, 161, 229, 0.329);
 }
 
 /*-----------------------------------*\
@@ -314,7 +318,7 @@ body {
 }
 
 .card.solid-red:hover {
-  transform: translateY(-3px) scale(1.015);
+  transform: translateY(-3px) scale(1.02);
   box-shadow: 0 14px 44px hsla(8, 55%, 25%, 0.45);
 }
 
@@ -348,7 +352,7 @@ body {
 }
 
 .card.solid-blue:hover {
-  transform: translateY(-3px) scale(1.015);
+  transform: translateY(-3px) scale(1.02);
   box-shadow: 0 14px 44px hsla(215, 35%, 65%, 0.26);
 }
 
@@ -378,7 +382,7 @@ body {
 }
 
 .card .solid-green:hover {
-  transform: translateY(-3px) scale(1.015);
+  transform: translateY(-3px) scale(1.02);
   box-shadow: 0 14px 44px hsla(151, 55%, 25%, 0.26);
 }
 
@@ -640,7 +644,10 @@ body {
 
 .header .btn-primary {
   padding-inline: 12px;
-  transition: all 200ms ease-in-out;
+  transition: all 200ms ease;
+  transform: scale(1);
+  transform: translateY(0px);
+  box-shadow: 0 12px 30px hsla(0, 0%, 0%, 0.267);
 }
 
 .header .btn-primary[disabled]:hover {
@@ -651,8 +658,7 @@ body {
 
 .header .btn-primary:hover {
   /* background-color: var(--primary-variant); */
-  transform: scale(1.02);
-  transform: translateY(-2px);
+  transform: scale(1.02) translateY(-2px);
   box-shadow: 0 12px 30px hsla(258, 57%, 77%, 0.267);
 }
 
@@ -1079,10 +1085,12 @@ article.container::before {
   background: var(--map-bg);
   min-height: 40vh;
   height: 300px;
+  overflow: hidden;
   transition:
     box-shadow 0.2s ease,
     background-color 0.2s ease,
-    opacity 200ms ease;
+    opacity 200ms ease,
+    transform 200ms ease;
 }
 
 #map {
@@ -1091,10 +1099,11 @@ article.container::before {
   border-radius: var(--radius-28);
   overflow: hidden;
   background: var(--map-inner-bg);
+  will-change: transform;
 }
 
 .map-card:hover {
-  transform: none !important;
+  transform: scale(1.04) translateY(-2px);
   box-shadow: 0 12px 30px var(--shadow-primary-soft);
 }
 
