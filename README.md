@@ -76,7 +76,7 @@ A clean, dark-themed dashboard inspired by modern weather apps, focused on clari
 </p>
 
 ##Deployed Website at
-- https://atmosio.web.app
+- https://atmosio.web.app/#
 
 ## Credits
 
